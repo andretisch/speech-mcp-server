@@ -116,11 +116,11 @@ AUDIO_SERVER_URL=http://localhost:8000
 
 ## Установка как служба (Ubuntu)
 
-Из корня репозитория:
+Из корня репозитория (от root или через sudo):
 
 ```bash
 chmod +x install-service.sh
-sudo ./install-service.sh
+./install-service.sh
 ```
 
 Скрипт создаёт `audio/venv`, ставит зависимости, копирует `audio/.env` из `audio/.env.example` (если нет) и регистрирует службу `audio-stt-tts`.

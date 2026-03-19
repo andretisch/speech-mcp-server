@@ -1,6 +1,6 @@
 #!/bin/bash
 # Установка аудио-сервера как systemd-службы на Ubuntu.
-# Запуск: sudo ./install-service.sh
+# Запуск от root: ./install-service.sh  (или sudo ./install-service.sh)
 # Сервис: audio-stt-tts.service
 
 set -e
@@ -10,7 +10,7 @@ AUDIO_DIR="$INSTALL_ROOT/audio"
 SERVICE_NAME="audio-stt-tts"
 
 if [ "$(id -u)" -ne 0 ]; then
-  echo "Запусти с sudo: sudo $0"
+  echo "Нужны права root: sudo $0"
   exit 1
 fi
 
