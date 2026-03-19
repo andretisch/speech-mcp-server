@@ -1,0 +1,22 @@
+# Unified STT + TTS — один venv, один PyTorch
+# Python 3.10+, Ubuntu 24.04
+
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+python-multipart>=0.0.12
+python-dotenv>=1.0.0
+fastmcp>=3.0.0
+
+# Один раз ставим torch — общий для STT/TTS/VAD
+torch>=2.0.0
+torchaudio>=2.0.0
+numpy>=1.20.0
+omegaconf>=2.0.0
+
+# STT
+faster-whisper>=1.2.0
+soundfile>=0.12.0
+scikit-learn>=1.4.0
+speechbrain>=1.0.0
+scipy>=1.10.0
+num2words>=0.5.0
