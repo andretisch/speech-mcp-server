@@ -60,13 +60,15 @@ UNIT_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
 cat > "$UNIT_FILE" << EOF
 [Unit]
 Description=Audio STT+TTS (faster-whisper, Silero, MCP)
-After=network.target
+After=network-online.target remote-fs.target
+Wants=network-online.target
 
 [Service]
 Type=simple
 User=$RUN_USER
 Group=$RUN_GROUP
 WorkingDirectory=$AUDIO_DIR
+Environment=PATH=$AUDIO_DIR/venv/bin:/usr/local/bin:/usr/bin:/bin
 EnvironmentFile=$AUDIO_DIR/.env
 ExecStart=$AUDIO_DIR/venv/bin/python server.py
 Restart=always

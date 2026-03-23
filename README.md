@@ -26,7 +26,7 @@ sudo apt install -y python3 python3-pip python3-venv ffmpeg curl
 Из корня репозитория:
 
 ```bash
-chmod +x audio/run.sh
+chmod +x audio/run.sh audio/transcribe_file.sh
 ./audio/run.sh
 ```
 
@@ -59,12 +59,12 @@ chmod +x audio/run.sh
 | SPK_CLUSTER_THRESHOLD | 0.7 | Порог кластеризации (cosine distance); меньше — больше спикеров |
 | SPK_MERGE_GAP_SEC | 0.4 | Склейка соседних turns одного спикера (сек) |
 | SILERO_LANG | ru | Язык Silero |
-| SILERO_MODEL | v5_3_ru | Модель (например: v5_3_ru, v5_2_ru, v5_ru, v4_ru) |
+| SILERO_MODEL | v5_ru | Модель (например: v5_3_ru, v5_2_ru, v5_ru, v4_ru) |
 | SILERO_SPEAKER | xenia | Голос: aidar, baya, kseniya, xenia, eugene |
 | SILERO_EN_LANG | en | Язык EN Silero |
-| SILERO_EN_MODEL | v3_en | Английская модель/спикер для torch.hub (например: v3_en, lj_16khz) |
+| SILERO_EN_MODEL | lj_16khz | Английская модель/спикер для torch.hub (например: v3_en, lj_16khz) |
 | SILERO_EN_SPEAKER | — | Английский голос (например `en_9`), если модель это поддерживает |
-| SILERO_SAMPLE_RATE | 16000 | Частота дискретизации TTS (выход будет ресемплен под это значение) |
+| SILERO_SAMPLE_RATE | 48000 | Частота дискретизации TTS (выход будет ресемплен под это значение) |
 | SILERO_PRELOAD | 0 | 1 — загрузить TTS при старте |
 | SILERO_MAX_CHARS | 5000 | Макс. длина текста для TTS |
 | TTS_PREPROCESS | 1 | Включить препроцессинг текста для TTS |

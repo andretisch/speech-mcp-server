@@ -1,2 +1,3 @@
 .cursor/
 audio/.env
+audio/venv/
