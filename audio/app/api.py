@@ -77,10 +77,10 @@ def create_app() -> FastAPI:
     @mcp.tool()
     def transcribe_large_file_workflow() -> dict:
         """Инструкция для транскрипции БОЛЬШОГО аудиофайла. MCP не передаёт большие base64, поэтому: 1) выполни curl и загрузи файл, 2) получи upload_id, 3) вызови transcribe(upload_id=\"...\")."""
-        base = os.environ.get("AUDIO_PUBLIC_URL", "http://localhost:8000")
+        base = config.env_str("AUDIO_PUBLIC_URL", "http://localhost:8000").rstrip("/")
         return {
             "workflow": [
-                "1. Загрузи файл: curl -F 'file=@ПУТЬ_К_ФАЙЛУ.wav' {base}/upload",
+                f"1. Загрузи файл: curl -F 'file=@ПУТЬ_К_ФАЙЛУ.wav' {base}/upload",
                 "2. Из ответа JSON возьми upload_id",
                 "3. Вызови transcribe(upload_id=\"<upload_id>\")",
             ],
