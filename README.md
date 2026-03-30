@@ -6,6 +6,17 @@
 
 Доступ: REST API (любой клиент) и MCP (подключение AI-ассистентов вроде Cursor, Claude и др.).
 
+## Точки входа
+
+| Способ | Команда / путь | Описание |
+|--------|----------------|----------|
+| Ручной запуск | `./audio/run.sh` | Из корня репо: поднимает venv, запускает сервер |
+| Прямой Python | `cd audio && ./venv/bin/python server.py` | После `run.sh` или `install-service.sh` |
+| Служба systemd | `sudo ./install-service.sh` | Установка как `audio-stt-tts.service` |
+| CLI для больших файлов | `./audio/transcribe_file.sh файл.wav [url]` | Загрузка + транскрипция через curl |
+| MCP | `.cursor/mcp.json` → `url` | Подключение Cursor/Claude к серверу |
+| REST + Web UI | `http://host:8000` | API + отладочная страница |
+
 ## Требования
 
 - Ubuntu 24.04 (или аналог)

@@ -3,3 +3,4 @@ audio/.env
 audio/venv/
 __pycache__/
 *.pyc
+skills/
