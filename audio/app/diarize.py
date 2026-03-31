@@ -146,6 +146,10 @@ def diarize(wav_path: str, device: str) -> list[tuple[float, float, str]]:
         return []
 
     X = np.stack(emb_list, axis=0)
+    if X.shape[0] == 1:
+        s, e = used_turns[0]
+        return [(s, e, "SPEAKER_00")]
+
     dist = float(os.environ.get("SPK_CLUSTER_THRESHOLD", "0.7"))
     clustering = AgglomerativeClustering(
         n_clusters=None,
