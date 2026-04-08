@@ -1,6 +1,7 @@
 .cursor/
 audio/.env
 audio/venv/
+audio/.venv/
 __pycache__/
 *.pyc
 skills/
